@@ -1,6 +1,5 @@
 import * as stylex from "@stylexjs/stylex";
 import { Route, Routes } from "react-router-dom";
-import "./App.css";
 import About from "./pages/About";
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
