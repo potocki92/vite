@@ -1,5 +1,5 @@
 import * as stylex from '@stylexjs/stylex';
-import Section from './Section';
+import Section from '../components/Section';
 
 const styles = stylex.create({
   heroContainer: {
