@@ -1,5 +1,6 @@
 
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import Section from "../components/Section";
 
 const About = () => {
     const helmetTitle = 'About';
@@ -15,8 +16,9 @@ const About = () => {
                     <meta property="og:title" content={helmetTitle} />
                     <meta property="og:description" content={helmetDescription} />
                 </Helmet>
+
+                <Section />
             </HelmetProvider>
-            About
         </>
     )
 }
