@@ -13,7 +13,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet-async": "^2.0.4",
-    "react-router-dom": "^6.21.2"
+    "react-router-dom": "^6.21.2",
+    "@stylexjs/stylex": "^0.4.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",
@@ -25,6 +26,13 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
     "typescript": "^5.2.2",
-    "vite": "^5.0.8"
+    "vite": "^5.0.8",
+    "@stylexjs/eslint-plugin": "^0.3.0",
+    "vite-plugin-stylex": "^0.4.0"
+  },
+  "overrides": {
+    "vite-plugin-stylex": {
+      "@stylexjs/babel-plugin": "0.4.1"
+    }
   }
 }
