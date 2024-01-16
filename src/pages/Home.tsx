@@ -1,9 +1,9 @@
 
 import { Helmet, HelmetProvider } from "react-helmet-async";
 
-const About = () => {
-    const helmetTitle = 'About';
-    const helmetDescription = 'A few words about me.';
+const Home = () => {
+    const helmetTitle = 'Mateusz Potocki';
+    const helmetDescription = 'A passionate fullstack developer based in Boleslawiec, Poland.';
 
     return (
         <>
@@ -11,14 +11,15 @@ const About = () => {
                 <Helmet>
                     <title>{helmetTitle}</title>
                     <meta name="description" content={helmetDescription} />
-                    <link rel="canonical" href="/about"/>
+                    <link rel="canonical" href="/"/>
                     <meta property="og:title" content={helmetTitle} />
                     <meta property="og:description" content={helmetDescription} />
                 </Helmet>
             </HelmetProvider>
-            About
+
+            Home
         </>
     )
 }
 
-export default About
+export default Home
