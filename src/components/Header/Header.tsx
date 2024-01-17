@@ -33,11 +33,12 @@ const Header = (): JSX.Element => {
   const lastScrollY = useRef(0);
   const { scrollY } = useScroll();
   
-  const initialYLogo = motionValueScrollYFactory([initialValue.initialYLogo.max, initialValue.initialYLogo.min]);
+  // const initialYLogo = motionValueScrollYFactory([initialValue.initialYLogo.max, initialValue.initialYLogo.min]);
   const initialYSpan = motionValueScrollYFactory([initialValue.initialYSpan.max, initialValue.initialYSpan.min]);
   // const initialY = motionValueScrollYFactory([initialValue.initialY.max, initialValue.initialY.min]);
   // const initialX = motionValueScrollYFactory([initialValue.initialX.max,initialValue.initialX.min]);
   // const initialTransform = motionValueScrollYFactory([initialValue.initialTransform.max, initialValue.initialTransform.min]);
+
 
   scrollY.on("change", (val) => {
     const diff = Math.abs(val - lastScrollY.current);
@@ -68,9 +69,7 @@ const Header = (): JSX.Element => {
         <Wrapper>
           <motion.div
             initial={isHomePage ? "visible" : undefined}
-            style={{
-              fontSize: initialYLogo,
-            } as unknown as React.CSSProperties}
+            style={{ scale: motionValueScrollYFactory(["7","1"])}}
           >
             <Logo />
           </motion.div>
