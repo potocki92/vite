@@ -76,9 +76,6 @@ const Header = (): JSX.Element => {
             <Logo />
           </motion.div>
           <motion.div
-            style={{
-              fontSize: initialYSpan,
-            } as unknown as React.CSSProperties}
           >
             <span {...stylex.props(styles.heroHeading)}>FULLSTACK DEVELOPER</span>
           </motion.div>
