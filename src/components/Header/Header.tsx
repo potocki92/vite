@@ -18,8 +18,8 @@ import { MobileNav, Nav } from "../Nav/Nav";
 const maxHeight: number = deviceHeightInfo();
 
 const initialValue = {
-  initialYLogo: {max: "3rem", min: "1.3rem"},
-  initialYSpan: {max: "1rem", min: "0.5rem"},
+  initialYLogo: {max: "clamp(1.3rem, 18vw, 18rem)", min: "clamp(1.3rem, 2vw, 18rem)"},
+  initialYSpan: {max: "clamp(0.5rem, 6.6vw, 5rem)", min: "clamp(0.45rem, 0.70vw, 5rem)"},
   initialY:{ max: `${maxHeight / 3}px`, min:`32px`},
   initialX: { max: `calc(50% + 0rem)`, min: `calc(0% + 1.5rem)`},
   initialTransform : { max: `translate(-50%)`, min: "translate(0%)"},
@@ -33,8 +33,9 @@ const Header = (): JSX.Element => {
   const lastScrollY = useRef(0);
   const { scrollY } = useScroll();
   
+  const initialYLogo = motionValueScrollYFactory(["1", "0.5"]);
   // const initialYLogo = motionValueScrollYFactory([initialValue.initialYLogo.max, initialValue.initialYLogo.min]);
-  // const initialYSpan = motionValueScrollYFactory([initialValue.initialYSpan.max, initialValue.initialYSpan.min]);
+  const initialYSpan = motionValueScrollYFactory([initialValue.initialYSpan.max, initialValue.initialYSpan.min]);
   const initialY = motionValueScrollYFactory([initialValue.initialY.max, initialValue.initialY.min]);
   const initialX = motionValueScrollYFactory([initialValue.initialX.max,initialValue.initialX.min]);
   const initialTransform = motionValueScrollYFactory([initialValue.initialTransform.max, initialValue.initialTransform.min]);
@@ -68,11 +69,16 @@ const Header = (): JSX.Element => {
         <Wrapper initialTransform={initialTransform} initialX={initialX} initialY={initialY} style={styles.headerWrapper}>
           <motion.div
             initial={isHomePage ? "visible" : undefined}
+            style={{
+              scale: initialYLogo,
+            } as unknown as React.CSSProperties}
           >
             <Logo />
           </motion.div>
           <motion.div
-           
+            style={{
+              fontSize: initialYSpan,
+            } as unknown as React.CSSProperties}
           >
             <span {...stylex.props(styles.heroHeading)}>FULLSTACK DEVELOPER</span>
           </motion.div>
