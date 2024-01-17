@@ -35,7 +35,7 @@ const Header = (): JSX.Element => {
   
   const initialYLogo = motionValueScrollYFactory(["1", "0.5"]);
   // const initialYLogo = motionValueScrollYFactory([initialValue.initialYLogo.max, initialValue.initialYLogo.min]);
-  const initialYSpan = motionValueScrollYFactory([initialValue.initialYSpan.max, initialValue.initialYSpan.min]);
+  // const initialYSpan = motionValueScrollYFactory([initialValue.initialYSpan.max, initialValue.initialYSpan.min]);
   const initialY = motionValueScrollYFactory([initialValue.initialY.max, initialValue.initialY.min]);
   const initialX = motionValueScrollYFactory([initialValue.initialX.max,initialValue.initialX.min]);
   const initialTransform = motionValueScrollYFactory([initialValue.initialTransform.max, initialValue.initialTransform.min]);
