@@ -27,7 +27,7 @@ const initialValue = {
     min: "clamp(0.45rem, 0.70vw, 5rem)",
   },
   initialY: { max: `${maxHeight / 3}px`, min: `0px` },
-  initialX: { max: `calc(2.5rem)`, min: `calc(-5rem)` },
+  initialX: { max: `calc(50% + 0rem)`, min: `calc(0% + 1.5rem)` },
   initialTransform: { max: `translate(-50%)`, min: "translate(0%)" },
 } as const;
 
@@ -50,10 +50,10 @@ const Header = (): JSX.Element => {
     initialValue.initialX.max,
     initialValue.initialX.min,
   ]);
-  const initialTransform = motionValueScrollYFactory([
-    initialValue.initialTransform.max,
-    initialValue.initialTransform.min,
-  ]);
+  // const initialTransform = motionValueScrollYFactory([
+  //   initialValue.initialTransform.max,
+  //   initialValue.initialTransform.min,
+  // ]);
 
   scrollY.on("change", (val) => {
     const diff = Math.abs(val - lastScrollY.current);
@@ -81,33 +81,28 @@ const Header = (): JSX.Element => {
       {...stylex.props(styles.header)}
     >
       {isHomePage && (
+        <motion.div
+          initial={isHomePage ? "visible" : undefined}
+          style={{position: "absolute", left: "1.5rem",scale: initialYLogo} as unknown as React.CSSProperties}
+        >
         <Wrapper
-          initialTransform={initialTransform}
+          // initialTransform={initialTransform}
           initialX={initialX}
           initialY={initialY}
-          initialScale={initialYLogo}
+          // initialScale={initialYLogo}
         >
-          <motion.div
-            initial={isHomePage ? "visible" : undefined}
-            // style={{scale: initialYLogo} as unknown as React.CSSProperties}
-          >
             <Logo />
-          </motion.div>
-          <motion.div
-            initial={isHomePage ? "visible" : undefined}
-            
-          >
             <span {...stylex.props(styles.heroHeading)}>
               FULLSTACK DEVELOPER
             </span>
-          </motion.div>
         </Wrapper>
+      </motion.div>
       )}
       {!isHomePage && (
         <Wrapper
-          initialTransform={initialValue.initialTransform.min}
-          initialX={initialValue.initialX.min}
-          initialY={initialValue.initialY.min}
+        // initialTransform={initialValue.initialTransform.min}
+        initialX={initialValue.initialX.min}
+        initialY={initialValue.initialY.min}
           style={styles.headerWrapper}
         >
           <div
