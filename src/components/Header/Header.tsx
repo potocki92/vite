@@ -50,10 +50,10 @@ const Header = (): JSX.Element => {
     initialValue.initialX.max,
     initialValue.initialX.min,
   ]);
-  // const initialTransform = motionValueScrollYFactory([
-  //   initialValue.initialTransform.max,
-  //   initialValue.initialTransform.min,
-  // ]);
+  const initialTransform = motionValueScrollYFactory([
+    initialValue.initialTransform.max,
+    initialValue.initialTransform.min,
+  ]);
 
   scrollY.on("change", (val) => {
     const diff = Math.abs(val - lastScrollY.current);
@@ -83,10 +83,10 @@ const Header = (): JSX.Element => {
       {isHomePage && (
         <motion.div
           initial={isHomePage ? "visible" : undefined}
-          style={{position: "absolute", left: "1.5rem",scale: initialYLogo} as unknown as React.CSSProperties}
+          style={{width: "100%", position: "relative",scale: initialYLogo} as unknown as React.CSSProperties}
         >
         <Wrapper
-          // initialTransform={initialTransform}
+          initialTransform={initialTransform}
           initialX={initialX}
           initialY={initialY}
           // initialScale={initialYLogo}
