@@ -65,7 +65,7 @@ const Header = (): JSX.Element => {
       {...stylex.props(styles.header)}
     >
       {isHomePage && (
-        <Wrapper initialTransform={initialTransform} initialX={initialX} initialY={initialY} style={styles.headerWrapper}>
+        <Wrapper>
           <motion.div
             initial={isHomePage ? "visible" : undefined}
             style={{
