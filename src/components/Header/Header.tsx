@@ -18,8 +18,8 @@ import { MobileNav, Nav } from "../Nav/Nav";
 const maxHeight: number = deviceHeightInfo();
 
 const initialValue = {
-  initialYLogo: {max: "clamp(1.3rem, 18vw, 18rem)", min: "clamp(1.3rem, 2vw, 18rem)"},
-  initialYSpan: {max: "clamp(0.5rem, 6.6vw, 5rem)", min: "clamp(0.45rem, 0.70vw, 5rem)"},
+  initialYLogo: {max: "3rem", min: "1.3rem"},
+  initialYSpan: {max: "1rem", min: "0.5rem"},
   initialY:{ max: `${maxHeight / 3}px`, min:`32px`},
   initialX: { max: `calc(50% + 0rem)`, min: `calc(0% + 1.5rem)`},
   initialTransform : { max: `translate(-50%)`, min: "translate(0%)"},
