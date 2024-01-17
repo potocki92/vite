@@ -14,6 +14,7 @@ const styles = stylex.create({
     padding: "2rem 1.5rem",
   }),
   heroHeading: {
+    fontSize: "clamp(0.5rem, 6.6vw, 5rem)",
     display: "block",
     overflow: "hidden",
     fontWeight: "bold",
@@ -25,6 +26,7 @@ const styles = stylex.create({
     left: "50%",
     top: "50%",
     transform: "translateX(-50%)",
+    scale: "1"
   },
   transform: {
     position: "absolute",
