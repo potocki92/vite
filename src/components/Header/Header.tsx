@@ -33,8 +33,8 @@ const Header = (): JSX.Element => {
   const lastScrollY = useRef(0);
   const { scrollY } = useScroll();
   
-  const initialYLogo = motionValueScrollYFactory([initialValue.initialYLogo.max, initialValue.initialYLogo.min]);
-  const initialYSpan = motionValueScrollYFactory([initialValue.initialYSpan.max, initialValue.initialYSpan.min]);
+  // const initialYLogo = motionValueScrollYFactory([initialValue.initialYLogo.max, initialValue.initialYLogo.min]);
+  // const initialYSpan = motionValueScrollYFactory([initialValue.initialYSpan.max, initialValue.initialYSpan.min]);
   const initialY = motionValueScrollYFactory([initialValue.initialY.max, initialValue.initialY.min]);
   const initialX = motionValueScrollYFactory([initialValue.initialX.max,initialValue.initialX.min]);
   const initialTransform = motionValueScrollYFactory([initialValue.initialTransform.max, initialValue.initialTransform.min]);
@@ -68,16 +68,11 @@ const Header = (): JSX.Element => {
         <Wrapper initialTransform={initialTransform} initialX={initialX} initialY={initialY} style={styles.headerWrapper}>
           <motion.div
             initial={isHomePage ? "visible" : undefined}
-            style={{
-              fontSize: initialYLogo,
-            } as unknown as React.CSSProperties}
           >
             <Logo />
           </motion.div>
           <motion.div
-            style={{
-              fontSize: initialYSpan,
-            } as unknown as React.CSSProperties}
+           
           >
             <span {...stylex.props(styles.heroHeading)}>FULLSTACK DEVELOPER</span>
           </motion.div>
