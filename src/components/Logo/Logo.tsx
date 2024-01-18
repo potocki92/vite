@@ -14,7 +14,7 @@ const Logo =((props: LogoProps) => {
       id="logo"
       {...stylex.props( style)}
     >
-      <img src={svg}/>
+      <img style={{width: "4rem", height: "4rem"}} src={svg}/>
     </div>
   );
 });

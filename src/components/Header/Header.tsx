@@ -24,10 +24,10 @@ const initialValue = {
     max: "clamp(0.5rem, 6.6vw, 5rem)",
     min: "clamp(0.45rem, 0.70vw, 5rem)",
   },
-  initialY: { max: `145px`, min: `33px` },
+  initialY: { max: `145px`, min: `15px` },
   initialTransform: {
-    max: `translate3d(0rem, 0, 0) scale(1.5)`,
-    min: "translate3d(0.12rem, 0, 0) scale(1)",
+    max: `translate3d(0rem, 0, 0) scale(1)`,
+    min: "translate3d(0.12rem, 0, 0) scale(.6)",
   },
 } as const;
 
