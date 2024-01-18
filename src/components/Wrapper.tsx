@@ -17,26 +17,25 @@ type WrapperProps = {
  * @param {WrapperProps} props - The properties of the Wrapper component.
  * @returns {JSX.Element} The JSX representation of the Wrapper component.
  */
+
 const Wrapper = ({
   children,
   style,
   initialX,
   initialY,
   initialTransform,
-  initialScale,
 }: React.PropsWithChildren<WrapperProps>) => {
   return (
     <motion.div
       id="wrapper"
       style={{
-        ...stylex.props(style),
         position: "absolute",
-        scale: initialScale,
         left: initialX,
         top: initialY,
         transform: initialTransform,
         transformOrigin: "left",
       }}
+      {...stylex.props(style)}
     >
       {children}
     </motion.div>

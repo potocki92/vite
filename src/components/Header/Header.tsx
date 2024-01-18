@@ -1,9 +1,10 @@
 import { motion, useAnimation, useScroll } from "framer-motion";
 import * as stylex from "@stylexjs/stylex";
+import styles from "./Header.styles";
+import { globalTokens as $ } from "../../styles/globalTokens.stylex";
 import { useRef } from "react";
 import motionValueScrollYFactory from "../../utils/motionValueScroll";
 import { useLocation } from "react-router-dom";
-import styles from "./Header.styles";
 import Wrapper from "../Wrapper";
 import Logo from "../Logo/Logo";
 import { MobileNav, Nav } from "../Nav/Nav";
@@ -77,25 +78,18 @@ const Header = (): JSX.Element => {
         <Wrapper
           initialTransform={initialTransform}
           initialY={initialY}
-          initialX={"1.5rem"}
+          initialX={$.globalXPadding}
         >
           <Logo />
         </Wrapper>
       )}
       {!isHomePage && (
         <Wrapper
+        initialTransform={initialValue.initialTransform.min}
           initialY={initialValue.initialY.min}
-          style={styles.headerWrapper}
+          initialX={$.globalXPadding}
         >
-          <div
-            style={
-              {
-                fontSize: initialValue.initialYLogo.min,
-              } as unknown as React.CSSProperties
-            }
-          >
-            <Logo />
-          </div>
+          <Logo />
         </Wrapper>
       )}
       <Nav />
