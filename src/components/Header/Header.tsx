@@ -15,7 +15,6 @@ import { MobileNav, Nav } from "../Nav/Nav";
  * @component
  * @returns {JSX.Element} The JSX representation of the header component.
  */
-const maxHeight: number = deviceHeightInfo();
 
 const initialValue = {
   initialYLogo: {
@@ -26,9 +25,11 @@ const initialValue = {
     max: "clamp(0.5rem, 6.6vw, 5rem)",
     min: "clamp(0.45rem, 0.70vw, 5rem)",
   },
-  initialY: { max: `${maxHeight / 3}px`, min: `0px` },
-  initialX: { max: `calc(50% + 0rem)`, min: `calc(0% + 1.5rem)` },
-  initialTransform: { max: `translate(-50%)`, min: "translate(0%)" },
+  initialY: { max: `145px`, min: `33px` },
+  initialTransform: {
+    max: `translate3d(0rem, 0, 0) scale(1.5)`,
+    min: "translate3d(0.12rem, 0, 0) scale(1)",
+  },
 } as const;
 
 const Header = (): JSX.Element => {
@@ -39,16 +40,9 @@ const Header = (): JSX.Element => {
   const lastScrollY = useRef(0);
   const { scrollY } = useScroll();
 
-  const initialYLogo = motionValueScrollYFactory(["1", "0.25"]);
-  // const initialYLogo = motionValueScrollYFactory([initialValue.initialYLogo.max, initialValue.initialYLogo.min]);
-  // const initialYSpan = motionValueScrollYFactory([initialValue.initialYSpan.max, initialValue.initialYSpan.min]);
   const initialY = motionValueScrollYFactory([
     initialValue.initialY.max,
     initialValue.initialY.min,
-  ]);
-  const initialX = motionValueScrollYFactory([
-    initialValue.initialX.max,
-    initialValue.initialX.min,
   ]);
   const initialTransform = motionValueScrollYFactory([
     initialValue.initialTransform.max,
@@ -81,28 +75,17 @@ const Header = (): JSX.Element => {
       {...stylex.props(styles.header)}
     >
       {isHomePage && (
-        <motion.div
-          initial={isHomePage ? "visible" : undefined}
-          style={{width: "100%", position: "relative",scale: initialYLogo} as unknown as React.CSSProperties}
-        >
         <Wrapper
           initialTransform={initialTransform}
-          initialX={initialX}
           initialY={initialY}
-          // initialScale={initialYLogo}
+          initialX={"1.5rem"}
         >
-            <Logo />
-            <span {...stylex.props(styles.heroHeading)}>
-              FULLSTACK DEVELOPER
-            </span>
+          <Logo />
         </Wrapper>
-      </motion.div>
       )}
       {!isHomePage && (
         <Wrapper
-        // initialTransform={initialValue.initialTransform.min}
-        initialX={initialValue.initialX.min}
-        initialY={initialValue.initialY.min}
+          initialY={initialValue.initialY.min}
           style={styles.headerWrapper}
         >
           <div
@@ -113,17 +96,6 @@ const Header = (): JSX.Element => {
             }
           >
             <Logo />
-          </div>
-          <div
-            style={
-              {
-                fontSize: initialValue.initialYSpan.min,
-              } as unknown as React.CSSProperties
-            }
-          >
-            <span {...stylex.props(styles.heroHeading)}>
-              FULLSTACK DEVELOPER
-            </span>
           </div>
         </Wrapper>
       )}

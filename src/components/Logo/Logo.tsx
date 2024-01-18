@@ -1,6 +1,6 @@
 import type {StyleXStyles} from '@stylexjs/stylex';
 import * as stylex from "@stylexjs/stylex";
-import styles from './Logo.style';
+import svg from "/vite.svg"
 
 type LogoProps = {
   fontSize?: string,
@@ -8,13 +8,13 @@ type LogoProps = {
 };
 
 const Logo =((props: LogoProps) => {
-  const { fontSize, style} = props
+  const { style} = props
   return (
     <div
       id="logo"
-      {...stylex.props(styles.logo(fontSize), style)}
+      {...stylex.props( style)}
     >
-      POTOCKI
+      <img src={svg}/>
     </div>
   );
 });
