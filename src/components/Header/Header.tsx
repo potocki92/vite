@@ -3,7 +3,6 @@ import * as stylex from "@stylexjs/stylex";
 import { useRef } from "react";
 import motionValueScrollYFactory from "../../utils/motionValueScroll";
 import { useLocation } from "react-router-dom";
-import deviceHeightInfo from "../../utils/deviceHeightInfo";
 import styles from "./Header.styles";
 import Wrapper from "../Wrapper";
 import Logo from "../Logo/Logo";
